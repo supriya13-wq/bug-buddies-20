@@ -49,6 +49,8 @@ export type Database = {
       bugs: {
         Row: {
           access_notes: string | null
+          bounty_amount: number | null
+          category: string | null
           client_id: string
           created_at: string
           debugger_id: string | null
@@ -67,6 +69,8 @@ export type Database = {
         }
         Insert: {
           access_notes?: string | null
+          bounty_amount?: number | null
+          category?: string | null
           client_id: string
           created_at?: string
           debugger_id?: string | null
@@ -85,6 +89,8 @@ export type Database = {
         }
         Update: {
           access_notes?: string | null
+          bounty_amount?: number | null
+          category?: string | null
           client_id?: string
           created_at?: string
           debugger_id?: string | null
@@ -106,27 +112,33 @@ export type Database = {
       debugger_profiles: {
         Row: {
           bio: string | null
+          bugs_solved: number | null
           created_at: string
           experience_level: string | null
           id: string
+          rating: number | null
           skills: string[] | null
           updated_at: string
           user_id: string
         }
         Insert: {
           bio?: string | null
+          bugs_solved?: number | null
           created_at?: string
           experience_level?: string | null
           id?: string
+          rating?: number | null
           skills?: string[] | null
           updated_at?: string
           user_id: string
         }
         Update: {
           bio?: string | null
+          bugs_solved?: number | null
           created_at?: string
           experience_level?: string | null
           id?: string
+          rating?: number | null
           skills?: string[] | null
           updated_at?: string
           user_id?: string
