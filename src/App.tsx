@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { Navbar } from "@/components/Navbar";
 import Landing from "./pages/Landing";
+import Laphing from "./pages/Laphing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ClientDashboard from "./pages/ClientDashboard";
@@ -41,7 +42,8 @@ function AppRoutes() {
     <>
       {user && <Navbar />}
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/dashboard" replace /> : <><Navbar /><Landing /></>} />
+        <Route path="/" element={<Laphing />} />
+        <Route path="/debugnow" element={user ? <Navigate to="/dashboard" replace /> : <><Navbar /><Landing /></>} />
         <Route path="/login" element={user ? <Navigate to="/dashboard" replace /> : <Login />} />
         <Route path="/signup" element={user ? <Navigate to="/dashboard" replace /> : <Signup />} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardRedirect /></ProtectedRoute>} />
