@@ -114,7 +114,7 @@ function Hero() {
           className="font-body mt-6 text-lg md:text-2xl text-center"
           style={{ color: COLORS.turmeric }}
         >
-          Built by Cravers, <span style={{ color: COLORS.off }}>For Cravers</span>
+          The craving doesn't wait. <span style={{ color: COLORS.off }}>Neither should you.</span>
         </motion.p>
 
         <div className="relative mt-10 md:mt-14 w-full aspect-[16/9] overflow-hidden rounded-2xl" style={{ border: `3px solid ${COLORS.fire}` }}>
