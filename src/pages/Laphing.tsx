@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { toast } from 'sonner';
-import heroImg from '@/assets/laphing-hero.jpg';
+import heroImg from '@/assets/laphing-hero-girl.jpg';
+import pack1 from '@/assets/laphing-pack-1.png';
+import pack2 from '@/assets/laphing-pack-2.png';
+import pack3 from '@/assets/laphing-pack-3.jpg';
 
 const COLORS = {
   fire: '#E8230A',
@@ -25,11 +28,7 @@ function Wordmark({ size = 'text-xl' }: { size?: string }) {
     <span
       className={`font-display ${size} font-black tracking-tight inline-block`}
       style={{
-        color: COLORS.off,
-        border: `3px solid ${COLORS.fire}`,
-        padding: '4px 12px',
-        transform: 'rotate(-2deg)',
-        boxShadow: `4px 4px 0 ${COLORS.fire}`,
+        color: COLORS.yellow,
         background: COLORS.black,
         letterSpacing: '0.02em',
       }}
@@ -92,7 +91,7 @@ function Hero() {
     <section id="top" className="relative min-h-screen pt-28 pb-12 overflow-hidden" style={{ background: COLORS.black }}>
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <h1
-          className="font-display font-black uppercase leading-[0.85] text-[15vw] md:text-[10vw]"
+          className="font-display font-black uppercase leading-[0.85] text-[15vw] md:text-[10vw] text-center"
           style={{ color: COLORS.off }}
         >
           {headline.map((w, i) => (
@@ -112,10 +111,10 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="font-body mt-6 text-lg md:text-2xl"
+          className="font-body mt-6 text-lg md:text-2xl text-center"
           style={{ color: COLORS.turmeric }}
         >
-          Rehydrate. Roll. Demolish. <span style={{ color: COLORS.off }}>The streets came home.</span>
+          Built by Cravers, <span style={{ color: COLORS.off }}>For Cravers</span>
         </motion.p>
 
         <div className="relative mt-10 md:mt-14 w-full aspect-[16/9] overflow-hidden rounded-2xl" style={{ border: `3px solid ${COLORS.fire}` }}>
@@ -201,7 +200,7 @@ function Problem() {
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mt-20"
+          className="text-center mt-12"
         >
           <p className="font-display font-black uppercase text-7xl md:text-[12rem] leading-none" style={{ color: COLORS.fire }}>
             We Fixed It.
@@ -214,10 +213,10 @@ function Problem() {
 
 function Products() {
   const products = [
-    { name: 'Classic Dry Pack', tag: 'The OG. Just vibes and chilli oil.', spice: 3, color: COLORS.chilli },
-    { name: 'Soupy Laphing Pack', tag: 'For when you want a hug. A spicy, chaotic hug.', spice: 2, color: COLORS.turmeric },
-    { name: 'Spicy Firebomb Edition', tag: "Not for the weak. You've been warned. 🔥💀", spice: 5, color: COLORS.fire },
-    { name: 'Starter Kit (Pack + Sauces)', tag: 'Everything. All at once. The full craving kit.', spice: 3, color: COLORS.yellow },
+    { name: 'Classic Dry Pack', tag: 'The OG. Just vibes and chilli oil.', spice: 3, color: COLORS.chilli, img: pack1 },
+    { name: 'Soupy Laphing Pack', tag: 'For when you want a hug. A spicy, chaotic hug.', spice: 2, color: COLORS.turmeric, img: pack2 },
+    { name: 'Spicy Firebomb Edition', tag: "Not for the weak. You've been warned. 🔥💀", spice: 5, color: COLORS.fire, img: pack3 },
+    { name: 'Starter Kit (Pack + Sauces)', tag: 'Everything. All at once. The full craving kit.', spice: 3, color: COLORS.yellow, img: pack1 },
   ];
   return (
     <section id="shop" className="py-24 md:py-32 px-4 md:px-8" style={{ background: '#0A0A0A' }}>
@@ -244,13 +243,8 @@ function Products() {
                 e.currentTarget.style.borderColor = '#222';
               }}
             >
-              <div
-                className="aspect-square flex items-center justify-center p-6 text-center"
-                style={{ background: p.color }}
-              >
-                <span className="font-display font-black uppercase text-3xl leading-none" style={{ color: COLORS.black }}>
-                  {p.name}
-                </span>
+              <div className="aspect-square overflow-hidden" style={{ background: COLORS.black }}>
+                <img src={p.img} alt={p.name} className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
                 <p className="font-body text-sm mb-4" style={{ color: COLORS.off, opacity: 0.8 }}>{p.tag}</p>
@@ -477,7 +471,7 @@ function Waitlist() {
 function Footer() {
   return (
     <footer className="py-16 px-4 md:px-8 text-center" style={{ background: COLORS.black, borderTop: `2px solid ${COLORS.fire}` }}>
-      <h3 className="font-display font-black uppercase text-5xl md:text-7xl mb-4" style={{ color: COLORS.off, WebkitTextStroke: `2px ${COLORS.fire}` }}>
+      <h3 className="font-display font-black uppercase text-5xl md:text-7xl mb-4" style={{ color: COLORS.yellow }}>
         The Laphing Co
       </h3>
       <p className="font-body italic mb-6" style={{ color: COLORS.turmeric }}>built by cravers. for cravers.</p>
