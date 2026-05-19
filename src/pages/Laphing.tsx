@@ -86,12 +86,12 @@ function Hero() {
     const t = setInterval(() => setIdx((i) => (i + 1) % heroSlides.length), 3000);
     return () => clearInterval(t);
   }, []);
-  const headline = '5-MINUTE LAPHING. NO EXCUSES.'.split(' ');
+  const headline = 'Miss it? Make it in 5 minutes. Spicy Yellow Laphing - now at home.'.split(' ');
   return (
     <section id="top" className="relative min-h-screen pt-28 pb-12 overflow-hidden" style={{ background: COLORS.black }}>
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <h1
-          className="font-display font-black uppercase leading-[0.85] text-[15vw] md:text-[10vw] text-center"
+          className="font-display font-black uppercase leading-[0.85] text-[8vw] md:text-[5.5vw] text-center"
           style={{ color: COLORS.off }}
         >
           {headline.map((w, i) => (
@@ -99,9 +99,9 @@ function Hero() {
               key={i}
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: i * 0.12, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+              transition={{ delay: i * 0.08, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
               className="inline-block mr-[0.25em]"
-              style={i === 1 ? { color: COLORS.fire } : {}}
+              style={/laphing/i.test(w) ? { color: COLORS.fire } : {}}
             >
               {w}
             </motion.span>
@@ -114,7 +114,7 @@ function Hero() {
           className="font-body mt-6 text-lg md:text-2xl text-center"
           style={{ color: COLORS.turmeric }}
         >
-          Built by Cravers, <span style={{ color: COLORS.off }}>For Cravers</span>
+          The craving doesn't wait. <span style={{ color: COLORS.off }}>Neither should you.</span>
         </motion.p>
 
         <div className="relative mt-10 md:mt-14 w-full aspect-[16/9] overflow-hidden rounded-2xl" style={{ border: `3px solid ${COLORS.fire}` }}>
